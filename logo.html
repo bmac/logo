@@ -27,34 +27,36 @@
   var blue = "blue";  
 
   context.beginPath();
-  context.moveTo(step * 3, step * 1);
-  context.lineTo(step * 3, step * 8);
-  context.arcTo(step * 3, step * 9, step * 5, step * 9, radius);
-  context.lineTo(step * 8, step * 9);
-  context.arcTo(step * 9, step * 9, step * 9, step * 8, radius);
-  context.lineTo(step * 9, step * 1.5);
-  context.arcTo(step * 9, step * 0, step * 8, step * 1.5, radius);
-  context.lineTo(step * 6.5, step * 3);
-  //context.lineTo(step * 5.5, step * 3);
-  context.arcTo(step * 6, step * 4, step * 5.5, step * 3, radius);
-  context.lineTo(step * 4, step * 1.5);
-  context.arcTo(step * 3, step * 0, step * 3, step * 1, radius );
+  context.moveTo(step * 3, step * 3);
+  context.lineTo(step * 3, step * 7);
+  context.arcTo(step * 3, step * 8, step * 5, step * 8, radius);
+  context.lineTo(step * 8, step * 8);
+  context.arcTo(step * 9, step * 8, step * 9, step * 7, radius);
+  context.lineTo(step * 9, step * 2.5);
+  context.arcTo(step * 9, step * 2, step * 8, step * 2.5, radius);
+  // The dip
+  context.lineTo(step * 6.5, step * 3.5);
+  //context.lineTo(step * 5.5, step * 3.5);
+  context.arcTo(step * 6, step * 3.75, step * 5.5, step * 3.5, radius);
+  context.lineTo(step * 4, step * 2.5);
+
+  context.arcTo(step * 3, step * 2, step * 3, step * 3, radius );
   //context.lineWidth = 5;
   //context.stroke(); 
   context.fillStyle = red;
   context.fill();
 
   context.beginPath();
-  context.moveTo(step, step * 2);
+  context.moveTo(step, step * 3);
 
-  context.lineTo(step, step * 8);
-  context.arcTo(step, step * 9, step * 2, step * 9, radius);
-  context.lineTo(step * 2, step * 9);
+  context.lineTo(step, step * 7);
+  context.arcTo(step, step * 8, step * 2, step * 8, radius / 2);
+  context.lineTo(step * 2, step * 8);
 
- context.arc(step * 2, step * 6.9, step * 2.1, 0.5 * Math.PI, 1.5 * Math.PI, true);
-  context.arc(step * 2, step * 3.1, step * 2.1, 0.5 * Math.PI, 1.5 * Math.PI, true);
-  context.lineTo(step * 2, step * 1);
-  context.arcTo(step * 1, step * 1, step, step * 2, radius);
+ context.arc(step * 2, step * 6.4, step * 1.6, 0.5 * Math.PI, 1.5 * Math.PI, true);
+  context.arc(step * 2, step * 3.6, step * 1.6, 0.5 * Math.PI, 1.5 * Math.PI, true);
+  context.lineTo(step * 2, step * 2);
+  context.arcTo(step * 1, step * 2, step, step * 3, radius / 2);
   context.fillStyle = white; 
   context.fill();
   
