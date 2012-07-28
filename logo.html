@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> BM Logo</title> 
+    
+  <style type='text/css'>
+  #myCanvas {
+  	background-color: blue;
+  	border-radius: 25px;
+  }
+
+  </style>
+
+</head>
+<body>
+  <canvas id="myCanvas" width="512" height="512" ></canvas>
+ 
+<script type='text/javascript'>//<![CDATA[ 
+  var canvas = document.getElementById("myCanvas");
+  var context = canvas.getContext("2d");
+  var step = canvas.width / 10;
+  var radius = step / 2;
+  var white = "white";
+  var red = "red";
+  var blue = "blue";  
+
+  context.beginPath();
+  context.moveTo(step * 4, step * 1);
+  context.lineTo(step * 4, step * 8);
+  context.arcTo(step * 4, step * 9, step * 5, step * 9, radius);
+  context.lineTo(step * 8, step * 9);
+  context.arcTo(step * 9, step * 9, step * 9, step * 8, radius);
+  context.lineTo(step * 9, step * 1.5);
+  context.arcTo(step * 9, step * 0, step * 8, step * 1.5, radius);
+  context.lineTo(step * 7, step * 3);
+  //context.lineTo(step * 6, step * 3);
+  context.arcTo(step * 6.5, step * 4, step * 6, step * 3, step / 1.6);
+  context.lineTo(step * 5, step * 1.5);
+  context.arcTo(step * 4, step * 0, step * 4, step * 1, radius);
+  //context.lineWidth = 5;
+  //context.stroke(); 
+  context.fillStyle = red;
+  context.fill();
+
+  context.beginPath();
+  context.moveTo(step, step * 2);
+
+  context.lineTo(step, step * 8);
+  context.arcTo(step, step * 9, step * 2, step * 9, radius);
+  context.lineTo(step * 3, step * 9);
+
+ context.arc(step * 3, step * 6.9, step * 2.1, 0.5 * Math.PI, 1.5 * Math.PI, true);
+  context.arc(step * 3, step * 3.1, step * 2.1, 0.5 * Math.PI, 1.5 * Math.PI, true);
+  context.lineTo(step * 2, step * 1);
+  context.arcTo(step * 1, step * 1, step, step * 2, radius);
+  context.fillStyle = white; 
+  context.fill();
+  
+//]]>  
+
+</script> 
+</body>
+
+
+</html>
+
