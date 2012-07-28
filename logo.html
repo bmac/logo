@@ -7,7 +7,7 @@
     
   <style type='text/css'>
   #myCanvas {
-  	background-color: blue;
+  	background-color: #0F177C;
   	border-radius: 25px;
   }
 
@@ -18,49 +18,55 @@
   <canvas id="myCanvas" width="512" height="512" ></canvas>
  
 <script type='text/javascript'>//<![CDATA[ 
+
+  var drawB = function(context, step, cornerRadius) { 
+    context.beginPath();
+    context.moveTo(step, step * 1.5);
+
+    context.lineTo(step, step * 7.5);
+    context.arcTo(step, step * 8.5, step * 2, step * 8.5, cornerRadius);
+    context.lineTo(step * 2.5, step * 8.5);
+
+    context.arc(step * 2.5, step * 6.5, step * 2, 0.5 * Math.PI, 1.5 * Math.PI, true);
+    context.arc(step * 2.5, step * 3.5, step * 2, 0.5 * Math.PI, 1.5 * Math.PI, true);
+    context.lineTo(step * 2, step * 1.5);
+    context.arcTo(step * 1, step * 1.5, step, step * 2.5, cornerRadius);
+    context.fillStyle = "white"; 
+    context.fill();
+
+  };
+
+  var drawM = function(context, step, cornerRadius, edgeRadius) {
+    context.beginPath();
+    context.moveTo(step * 3, step * 1.75);
+    context.lineTo(step * 3, step * 7.5);
+    context.arcTo(step * 3, step * 8.5, step * 5, step * 8.5, cornerRadius);
+    context.lineTo(step * 8, step * 8.5);
+    context.arcTo(step * 9, step * 8.5, step * 9, step * 7.5, cornerRadius);
+    // right edge
+    context.lineTo(step * 9, step * 1.75);
+    context.arcTo(step * 9, step * 1, step * 8, step * 1.75, edgeRadius);
+    // The dip
+    context.lineTo(step * 6.5, step * 3);
+    //context.lineTo(step * 5.5, step * 3.5);
+    context.arcTo(step * 6, step * 3.5, step * 5.5, step * 3, edgeRadius);
+    context.lineTo(step * 4, step * 1.75);
+    // left edge
+    context.arcTo(step * 3, step * 1, step * 3, step * 1.75, edgeRadius );
+
+    context.fillStyle = "red";
+    context.fill();
+  }
+
   var canvas = document.getElementById("myCanvas");
   var context = canvas.getContext("2d");
   var step = canvas.width / 10;
-  var radius = step / 2;
+  var edgeRadius = step / 2;
   var cornerRadius = step / 4;
-  var white = "white";
-  var red = "red";
-  var blue = "blue";  
 
-  context.beginPath();
-  context.moveTo(step * 3, step * 1.75);
-  context.lineTo(step * 3, step * 7.5);
-  context.arcTo(step * 3, step * 8.5, step * 5, step * 8.5, cornerRadius);
-  context.lineTo(step * 8, step * 8.5);
-  context.arcTo(step * 9, step * 8.5, step * 9, step * 7.5, cornerRadius);
-  
-  context.lineTo(step * 9, step * 1.75);
-  context.arcTo(step * 9, step * 1, step * 8, step * 1.75, radius);
-  // The dip
-  context.lineTo(step * 6.5, step * 3);
-  //context.lineTo(step * 5.5, step * 3.5);
-  context.arcTo(step * 6, step * 3.5, step * 5.5, step * 3, radius);
-  context.lineTo(step * 4, step * 1.75);
+  drawM(context, step, cornerRadius, edgeRadius);
 
-  context.arcTo(step * 3, step * 1, step * 3, step * 1.75, radius );
-  //context.lineWidth = 5;
-  //context.stroke(); 
-  context.fillStyle = red;
-  context.fill();
-
-  context.beginPath();
-  context.moveTo(step, step * 1.5);
-
-  context.lineTo(step, step * 7.5);
-  context.arcTo(step, step * 8.5, step * 2, step * 8.5, cornerRadius);
-  context.lineTo(step * 2.5, step * 8.5);
-
- context.arc(step * 2.5, step * 6.5, step * 2, 0.5 * Math.PI, 1.5 * Math.PI, true);
-  context.arc(step * 2.5, step * 3.5, step * 2, 0.5 * Math.PI, 1.5 * Math.PI, true);
-  context.lineTo(step * 2, step * 1.5);
-  context.arcTo(step * 1, step * 1.5, step, step * 2.5, cornerRadius);
-  context.fillStyle = white; 
-  context.fill();
+  drawB(context, step, cornerRadius);
   
 //]]>  
 
